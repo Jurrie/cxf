@@ -101,9 +101,11 @@ public final class ToolConstants {
     public static final String CFG_EXCEPTION_SUPER = "exceptionSuper";
     public static final String CFG_SEI_SUPER = "seiSuper";
     public static final String CFG_MARK_GENERATED = "markGenerated";
+    public static final String CFG_MARK_GENERATED_WITHOUT_TIMESTAMP = "markGeneratedWithoutTimestamp";
     public static final String CFG_SUPPRESS_GENERATED_DATE = "suppressGeneratedDate";
 
     public static final String CFG_MARK_GENERATED_OPTION = "mark-generated";
+    public static final String CFG_MARK_GENERATED_WITHOUT_TIMESTAMP_OPTION = "Xmark-generated-without-timestamp";
     public static final String CFG_SUPPRESS_GENERATED_DATE_OPTION = "suppress-generated-date";
     public static final String CFG_MAX_EXTENSION_STACK_DEPTH = "maxExtensionStackDepth";
 

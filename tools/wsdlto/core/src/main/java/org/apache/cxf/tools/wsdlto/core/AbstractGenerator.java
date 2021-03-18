@@ -111,11 +111,15 @@ public abstract class AbstractGenerator implements FrontEndGenerator {
     protected void setCommonAttributes() {
         // Set generated date in ISO-8601 format, as is required for the date attribute for @Generated
         // annotation.
+        LOG.log(Level.SEVERE, "💩 mark generated without timestamp here? "
+            + env.optionSet(ToolConstants.CFG_MARK_GENERATED_WITHOUT_TIMESTAMP));
         setAttributes("currentdate", DatatypeConverter.printDateTime(Calendar.getInstance()));
         setAttributes("version", Version.getCurrentVersion());
         setAttributes("fullversion", Version.getCompleteVersionString());
         setAttributes("name", Version.getName());
         setAttributes(ToolConstants.CFG_MARK_GENERATED, env.optionSet(ToolConstants.CFG_MARK_GENERATED));
+        setAttributes(ToolConstants.CFG_MARK_GENERATED_WITHOUT_TIMESTAMP,
+                      env.optionSet(ToolConstants.CFG_MARK_GENERATED_WITHOUT_TIMESTAMP));
         setAttributes(ToolConstants.CFG_SUPPRESS_GENERATED_DATE,
                       env.optionSet(ToolConstants.CFG_SUPPRESS_GENERATED_DATE));
         if (env.optionSet(ToolConstants.CFG_FRONTEND)) {

@@ -170,6 +170,12 @@ public class Option {
     Boolean markGenerated;
 
     /**
+     * Uses @Generated annotation (without the 'date' parameter) in all generated java
+     * classes if the flag is set to true.
+     */
+    Boolean markGeneratedWithoutTimestamp;
+    
+    /**
      * Prevents dumping current date as part of @Generated annotation as well as part of
      * the javadocs of the Java files generated.
      */
@@ -417,6 +423,14 @@ public class Option {
         this.markGenerated = markGenerated;
     }
 
+    public Boolean isMarkGeneratedWithoutTimestamp() {
+        return markGeneratedWithoutTimestamp;
+    }
+
+    public void setMarkGeneratedWithoutTimestamp(Boolean markGeneratedWithoutTimestamp) {
+        this.markGeneratedWithoutTimestamp = markGeneratedWithoutTimestamp;
+    }
+
     public Boolean isSuppressGeneratedDate() {
         return suppressGeneratedDate;
     }
@@ -524,6 +538,8 @@ public class Option {
         faultSerialVersionUID = setIfNull(faultSerialVersionUID,
             defaultOptions.faultSerialVersionUID);
         markGenerated = setIfNull(markGenerated, defaultOptions.markGenerated);
+        markGeneratedWithoutTimestamp = setIfNull(markGeneratedWithoutTimestamp,
+            defaultOptions.markGeneratedWithoutTimestamp);
         suppressGeneratedDate = setIfNull(suppressGeneratedDate, defaultOptions.suppressGeneratedDate);
         autoNameResolution = setIfNull(autoNameResolution, defaultOptions.autoNameResolution);
         noAddressBinding = setIfNull(noAddressBinding, defaultOptions.noAddressBinding);

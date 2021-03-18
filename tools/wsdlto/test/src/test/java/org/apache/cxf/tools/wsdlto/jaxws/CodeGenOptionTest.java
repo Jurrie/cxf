@@ -260,7 +260,7 @@ public class CodeGenOptionTest extends AbstractCodeGenTest {
      * Tests that, when 'mark-generated' option is set, @Generated annotations are inserted in all generated
      * java classes.
      */
-    @Test
+    @Test // TODO: Also do this for mark-generated-without-timestamp
     public void testMarkGeneratedOption() throws Exception {
         env.put(ToolConstants.CFG_WSDLURL, getLocation("/wsdl2java_wsdl/hello_world.wsdl"));
         env.put(ToolConstants.CFG_MARK_GENERATED, "true");

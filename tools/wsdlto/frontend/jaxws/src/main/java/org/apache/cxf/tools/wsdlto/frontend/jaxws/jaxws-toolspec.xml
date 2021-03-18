@@ -369,6 +369,12 @@ Examples:
                 </annotation>
                 <switch>mark-generated</switch>
             </option>
+            <option id="markGeneratedWithoutTimestamp" maxOccurs="1">
+                <annotation>
+                    Adds @Generated annotation in all java files that are generated, but do not add a 'date' parameter.
+                </annotation>
+                <switch>mark-generated-without-timestamp</switch>
+            </option>
             <option id="suppressGeneratedDate" maxOccurs="1">
                 <annotation>
                     Prevents dumping current date as part of javadocs of the Java files generated.

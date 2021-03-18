@@ -17,7 +17,7 @@
 
 package $intf.PackageName;
 
-#if ($markGenerated == "true")
+#if ($markGenerated == "true" || $markGeneratedWithoutTimestamp == "true")
 import javax.annotation.Generated;
 #end
 import javax.xml.ws.Endpoint;
@@ -32,12 +32,16 @@ import javax.xml.ws.Endpoint;
  */
 
 #if ($markGenerated == "true")
-@Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava"#if ($suppressGeneratedDate != "true"), date = "$currentdate"#end, comments = "$fullversion")
+@Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", date = "$currentdate", comments = "$fullversion")
+#elseif ($markGeneratedWithoutTimestamp == "true")
+@Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", comments = "$fullversion")
 #end
 public class ${serverClassName}{
 
 #if ($markGenerated == "true")
-    @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava"#if ($suppressGeneratedDate != "true"), date = "$currentdate"#end)
+    @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", date = "$currentdate")
+#elseif ($markGeneratedWithoutTimestamp == "true")
+    @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava")
 #end
     protected ${serverClassName}() throws java.lang.Exception {
         System.out.println("Starting Server");
@@ -47,7 +51,9 @@ public class ${serverClassName}{
     }
 
 #if ($markGenerated == "true")
-    @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava"#if ($suppressGeneratedDate != "true"), date = "$currentdate"#end)
+    @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", date = "$currentdate")
+#elseif ($markGeneratedWithoutTimestamp == "true")
+    @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava")
 #end
     public static void main(String args[]) throws java.lang.Exception {
         new ${serverClassName}();

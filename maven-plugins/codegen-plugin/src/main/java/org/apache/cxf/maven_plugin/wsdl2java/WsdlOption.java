@@ -171,6 +171,8 @@ public class WsdlOption extends Option implements org.apache.cxf.maven_plugin.Ge
         }
         addIfTrue(list, isMarkGenerated() != null && isMarkGenerated(),
             "-" + ToolConstants.CFG_MARK_GENERATED_OPTION);
+        addIfTrue(list, isMarkGeneratedWithoutTimestamp() != null && isMarkGeneratedWithoutTimestamp(),
+                "-" + ToolConstants.CFG_MARK_GENERATED_WITHOUT_TIMESTAMP_OPTION);
         addIfTrue(list, isSuppressGeneratedDate() != null && isSuppressGeneratedDate(),
             "-" + ToolConstants.CFG_SUPPRESS_GENERATED_DATE_OPTION);
         addIfNotNull(list, getDefaultExcludesNamespace(), "-dex");

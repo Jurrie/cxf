@@ -437,7 +437,25 @@ public class JAXBDataBinding implements DataBindingProfile {
                 throw new ToolException(e);
             }
         }
+        
+        if (context.optionSet(ToolConstants.CFG_MARK_GENERATED_WITHOUT_TIMESTAMP)) {
+            // Add the @Generated annotation in the Java files generated. This is done by passing
+            // '-Xmark-generated-without-timestamp' attribute to jaxb xjc.
+            try {
+                LOG.log(Level.SEVERE, "💩We have -mark-generated-without-timestamp");
+                opts.parseArgument(new String[] {"-" + ToolConstants.CFG_MARK_GENERATED_WITHOUT_TIMESTAMP_OPTION}, 0);
+            } catch (BadCommandLineException e) {
+                LOG.log(Level.SEVERE, e.getMessage());
+                throw new ToolException(e);
+            }
+        } else {
+            LOG.log(Level.SEVERE, "💩 We DO NOT have -mark-generated-without-timestamp");
+        }
 
+
+        String pluginUsage = getPluginUsageString(opts);
+        LOG.log(Level.SEVERE, pluginUsage);
+        
         addSchemas(opts, schemaCompiler, schemas);
         addBindingFiles(opts, jaxbBindings, schemas);
         parseSchemas(schemaCompiler);
